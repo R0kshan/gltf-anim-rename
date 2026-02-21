@@ -8,7 +8,18 @@ This python script allows you to rename them.
 **NB :**  Please check prerequisites first.
 
 First make the script executable : `chmod +x run.sh`
-Running the script : `./run.sh example/model.glb Jump_Over_Obstacle_2 Idle` will produce model-anim-renamed.glb with the desired change.
+
+For a single replacement, run the following command :
+
+```
+./run.sh example/model.glb Jump_Over_Obstacle_2 Idle
+```
+
+For multiplements, provide a mapping file (see [mapping.txt](example/mapping.txt)) :
+
+```
+./run.sh example/model.glb example/mapping.txt
+```
 
 ## Pre-requisites
 
@@ -28,7 +39,3 @@ chmod +x install-prereqs.sh
 
 - [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#a-getting-pyenv), a tool that simplifies switching between python versions.
 - [venv](https://docs.python.org/3/library/venv.html), a virtual environnement with the required dependencies to run the script.
-
-## Future developement
-
-Renaming multiple animations at once with a file as input.
