@@ -3,7 +3,7 @@ import os
 from pygltflib import GLTF2 # install with: pip install pygltflib
 
 def validate_file(filepath, extension=None):
-    """Checks if a file exists and optionally validates the extension."""
+    
     if not os.path.exists(filepath):
         print(f"Error: The file '{filepath}' was not found.")
         sys.exit(1)
@@ -30,9 +30,9 @@ def load_mapping(filepath):
 
 def main():
 
-    # Ensure at least Python 3.6
-    if sys.version_info < (3, 6):
-        print("Error: This script requires Python 3.6 or higher.")
+    # Ensure at least Python 3.8
+    if sys.version_info < (3, 8):
+        print("Error: This script requires Python 3.8 or higher.")
         print(f"You are currently using Python {sys.version_info.major}.{sys.version_info.minor}")
         sys.exit(1)
     
