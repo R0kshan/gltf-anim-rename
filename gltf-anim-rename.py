@@ -2,6 +2,32 @@ import sys
 import os
 from pygltflib import GLTF2 # install with: pip install pygltflib
 
+def validate_file(filepath, extension=None):
+    """Checks if a file exists and optionally validates the extension."""
+    if not os.path.exists(filepath):
+        print(f"Error: The file '{filepath}' was not found.")
+        sys.exit(1)
+    
+    if extension and not filepath.lower().endswith(extension):
+        print(f"Error: '{filepath}' is not a valid {extension.upper()} file.")
+        sys.exit(1)
+
+def load_mapping(filepath):
+    """Parses a file with 'old_name->new_name' syntax."""
+    mapping = {}
+    try:
+        with open(filepath, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if not line or "->" not in line:
+                    continue
+                old, new = line.split("->", 1)
+                mapping[old.strip()] = new.strip()
+        return mapping
+    except Exception as e:
+        print(f"Error reading mapping file: {e}")
+        sys.exit(1)
+
 def main():
 
     # Ensure at least Python 3.6
@@ -17,16 +43,7 @@ def main():
         original_anim = sys.argv[2]
         replacement_anim = sys.argv[3]
 
-        # Check if the file exists
-        if not os.path.exists(glb_file):
-            print(f"Error: The file '{glb_file}' was not found.")
-            sys.exit(1)
-
-        # Check if the file has the correct .glb extension
-        if not glb_file.lower().endswith('.glb'):
-            print(f"Error: '{glb_file}' is not a valid GLB file.")
-            print("Please provide a file ending in .glb")
-            sys.exit(1)
+        validate_file(glb_file, extension=".glb")
         
         print(f"--- Excecution script {script_name} ---")
         print(f"Target File:      {glb_file}")
@@ -73,3 +90,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
