@@ -6,4 +6,4 @@ if [ ! -d "venv" ]; then
 fi
 
 # Run the python script using the venv's python directly
-./venv/bin/python gltf-anim-rename.py "$@"
+./venv/bin/python gltf_anim_rename.py "$@"
