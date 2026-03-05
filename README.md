@@ -1,7 +1,7 @@
 # Python script for renaming animations in a GLB file
 
 Some GLB files end up exported with animations associated with the wrong animation name (my issue when exported my GLB from [Meshy AI](https://www.meshy.ai)).
-This python script allows you to rename them.
+This python script allows you to rename them without needed to use Blender to do it.
 
 ## Pre-requisites
 
@@ -43,3 +43,4 @@ For multiplements, provide a mapping file (see [mapping.txt](example/mapping.txt
 ```
 ./gltf_anim_rename.py example/model.glb example/mapping.txt
 ```
+
