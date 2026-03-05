@@ -1,3 +1,9 @@
+# /// script
+# requires-python = ">=3.8"
+# dependencies = [
+#     "pygltflib>=1.16.5",
+# ]
+# ///
 """
 Script to rename animations in a GLB file using pygltflib.
 """

@@ -3,39 +3,53 @@
 Some GLB files end up exported with animations associated with the wrong animation name (my issue when exported my GLB from [Meshy AI](https://www.meshy.ai)).
 This python script allows you to rename them.
 
+## Pre-requisites
+
+- Minimum python version required : Python version 3.8
+- pygltflib==1.16.5 
+
+### Tip 
+
+For easy installation, use the [Python package manager UV](https://docs.astral.sh/uv/guides/install-python/)
+
 ## How to use
 
 **NB :**  Please check prerequisites first.
 
-First make the script executable : `chmod +x run.sh`
+### With UV
 
 For a single replacement, run the following command :
 
 ```
-./run.sh example/model.glb Jump_Over_Obstacle_2 Idle
+uv run gltf_anim_rename.py example/model.glb Jump_Over_Obstacle_2 Idle
 ```
 
 For multiplements, provide a mapping file (see [mapping.txt](example/mapping.txt)) :
 
 ```
-./run.sh example/model.glb example/mapping.txt
+uv run gltf_anim_rename.py example/model.glb example/mapping.txt
 ```
 
-## Pre-requisites
+### Without UV 
 
-Run the installation script [install-prereqs.sh](install-prereqs.sh) using :
-
-**NB :**
-
-- Python version 3.6 (verified using [vermin](https://github.com/netromdk/vermin))
-- Checkout [requirements.txt](requirements.txt) generated using [pipreqs](https://github.com/bndr/pipreqs)
+For a single replacement, run the following command :
 
 ```
-chmod +x install-prereqs.sh
-./install-prereqs.sh
+gltf_anim_rename.py example/model.glb Jump_Over_Obstacle_2 Idle
 ```
 
-**NB :** This script installs :
+For multiplements, provide a mapping file (see [mapping.txt](example/mapping.txt)) :
 
-- [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#a-getting-pyenv), a tool that simplifies switching between python versions.
-- [venv](https://docs.python.org/3/library/venv.html), a virtual environnement with the required dependencies to run the script.
+```
+gltf_anim_rename.py example/model.glb example/mapping.txt
+```
+
+### Run the script with UV 
+
+Install the [UV](https://docs.astral.sh/uv/guides/install-python/) package manager. 
+
+Run the following : 
+
+```
+uv run gltf_anim_rename.py example/model.glb Jump_Over_Obstacle_2 Idle
+```
